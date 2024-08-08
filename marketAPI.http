@@ -1,0 +1,72 @@
+@marketAPI_HostAddress = http://localhost:5126
+
+###
+GET {{marketAPI_HostAddress}}/api/Barang
+Accept: application/json
+
+###
+GET {{marketAPI_HostAddress}}/api/Gudang
+Accept: application/json
+
+###
+POST {{marketAPI_HostAddress}}/api/Gudang
+Content-Type: application/json
+
+{
+    "Id": "1",
+    "KodeGudang": "G01",
+    "NamaGudang": "GudangBesar01"
+}
+
+###
+PUT {{marketAPI_HostAddress}}/api/Gudang/1
+Content-Type: application/json
+
+{
+    "Id": 1,
+    "KodeGudang": "G01",
+    "NamaGudang": "GudangBesar01"
+}
+
+###
+DELETE {{marketAPI_HostAddress}}/api/Gudang/3
+
+
+###
+POST {{marketAPI_HostAddress}}/api/Barang
+Content-Type: application/json
+
+{
+  "kodeBarang": "B002",
+  "namaBarang": "Minyak",
+  "hargaBarang": 15000,
+  "jumlahBarang": 20,
+  "expiredDate": "2024-06-06",
+  "gudangId": 1
+}
+
+###
+PUT {{marketAPI_HostAddress}}/api/Barang/3
+Content-Type: application/json
+
+{
+  "Id": 3,
+  "kodeBarang": "B003",
+  "namaBarang": "Minyak",
+  "hargaBarang": 15000,
+  "jumlahBarang": 20,
+  "expiredDate": "2024-06-06",
+  "gudangId": 1
+}
+
+###
+DELETE {{marketAPI_HostAddress}}/api/Barang/3
+
+
+###
+GET {{marketAPI_HostAddress}}/api/Barang/monitoring?namaGudang=GudangBesar01
+Accept: application/json
+
+###
+GET {{marketAPI_HostAddress}}/api/Barang/monitoring?namaGudang=GudanBesar01&expiredDate=2024-10-10
+Accept: application/json
